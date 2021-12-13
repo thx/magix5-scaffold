@@ -124,8 +124,8 @@
     };
     let defaultView = projectName + '/views/default';
     Magix.boot({
-      defaultPath: '/index',
-      defaultView: '/home',
+      defaultPath: '/home',
+      defaultView,
       projectName,
       unmatchView: projectName + '/views/404',
       routes: {

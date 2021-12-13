@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
         "target": "es2018",
         "lib": [
