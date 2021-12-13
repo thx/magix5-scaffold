@@ -1,0 +1,53 @@
+{
+    "name": "magix5-scaffold",
+    "version": "1.0.0",
+    "rmxConfig": {
+        "kit": "magix"
+    },
+    "magixCliConfig": {
+        "magixVersion": "5",
+        "preloadModuleList": true,
+        "closeInspector": true,
+        "closeDesiger": true,
+        "closeDocs": true,
+        "closeHmr": false,
+        "magixJsTranspile": "esnext",
+        "esBuildTarget": ["es2018"],
+        "galleries": [
+        ],
+        "magixCombineConfig": {
+            "loaderType": "cmd_es",
+            "galleries": {
+                "mxRoot": "magix5-scaffold/gallery/"
+            }
+        },
+        "ipConfig": {
+            "线上": "192.168.0.100|http://local.remote.com:8080/index_new.html",
+            "预发一套": "192.168.0.101|http://pre-local.remote.com:8080/index_new.html"
+        },
+        "jsExtension": ".ts",
+        "autoOpenUrl": "http://localhost:8080/index.html",
+        "apiMatch": [
+            "api/",
+            ".json",
+            ".action"
+        ],
+        "indexMatch": [
+            "index.html",
+            "indexbp.html",
+            "login.html"
+        ],
+        "scopedCss": [
+            "./src/magix5-scaffold/assets/base.less"
+        ],
+        "galleriesMxRoot": "magix5-scaffold/gallery/",
+        "galleriesLgRoot": "magix5-scaffold/gallery-local/",
+        "srcFolder": "src",
+        "buildFolder": "build",
+        "rootAppName": "magix5-scaffold",
+        "dynamicProjectName": true
+    },
+    "dependencies": {
+        "dayjs": "1.10.x"
+    }
+}
