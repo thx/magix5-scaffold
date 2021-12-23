@@ -1,13 +1,6 @@
-<div class="display-flex header justify-content-center align-items-center">
-    <a class="link" href="#/home">{{= i18n('@:{lang#menu.home}') }}</a>
-    <span class="spliter">/</span>
-    <a class="link" href="#/todo">{{= i18n('@:{lang#menu.todo}') }}</a>
-    <span class="spliter">/</span>
-    <a class="link" href="#/form">{{= i18n('@:{lang#menu.form}') }}</a>
-    <span class="spliter">/</span>
-    <a class="link" href="#/about">{{= i18n('@:{lang#menu.about}') }}</a>
-</div>
-
-<div class="display-flex justify-content-center content" mx-view="./{{=path}}/index" *time="{{# currentTime }}">
-    这里可放一个loading动画
+<!-- 我们可以把default作为基础的layout来使用 -->
+<div class="app-container">
+    <div class="app-body">
+        <mx-vframe src="magix5-scaffold/views/{{= path}}/index"></mx-vframe>
+    </div>
 </div>

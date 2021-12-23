@@ -4,10 +4,10 @@
  * 包括挂在在view上的接口管理的fetch，save
  */
 import Magix from 'magix5';
-import Refs from "./gallery/mx-form/refs";
+import Refs from './gallery/mx-form/refs';
 import FormSync from './gallery/mx-form/sync';
 import I18n from './i18n/index';
-import ProjectService from "./services/service";
+import ProjectService from './services/service';
 
 let { config } = Magix;
 export default Magix.View.extend({
@@ -15,9 +15,9 @@ export default Magix.View.extend({
         this.set({
             i18n: I18n,
             pkgName: config<string>('projectName'),
-            galleryName: 'gallery'
-        })
-    }
+            galleryName: 'gallery',
+        });
+    },
 }).merge(ProjectService, FormSync, Refs);
 // import Chartx from './chartpark/index';
 // import Service from './services/service';

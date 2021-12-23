@@ -8,7 +8,4 @@ export default View.extend({
     async render() {
         this.digest();
     },
-    'navigate<click>'() {
-        Router.to('/examples');
-    },
 });
