@@ -1,0 +1,42 @@
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .logo {
+        color: #000;
+        font-size: 100px;
+        &::first-letter {
+            color: var(--color-brand);
+        }
+        animation: animate 6s ease-in-out infinite;
+    }
+
+    @keyframes animate {
+        0%,
+        100% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    .navigate {
+        height: 90px;
+        width: 90px;
+        margin-top: 20px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 90px;
+        font-size: 14px;
+        color: #fff;
+        background-color: var(--color-brand);
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
