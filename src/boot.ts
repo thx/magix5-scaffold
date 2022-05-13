@@ -3,7 +3,7 @@
 'compiled@:./lib/sea.js';
 'compiled@:./lib/magix.js';
 (() => {
-    const node = document.getElementById('boot') as HTMLScriptElement;
+    const node = document.currentScript as HTMLScriptElement;
     const src = node.src.replace('/boot.js', '');
     const projectName = 'magix5-scaffold';
     let seajs = window.seajs;
@@ -13,7 +13,8 @@
         },
     });
 
-    seajs.use(['magix5'], (Magix: Magix5.Magix) => {
+    seajs.use(['magix5'], ({ applyStyle, boot,
+        config }: Magix5.Magix) => {
         let setupEnv = (pkg, cdn, api) => {
             let seajs = window.seajs;
             if (!cdn.endsWith('/')) {
@@ -30,9 +31,9 @@
                     },
                 });
             }
-            let source = Magix.config(`${pkg}.resource`);
+            let source = config(`${pkg}.resource`);
             if (!source) {
-                Magix.config({
+                config({
                     [`${pkg}.api.host`]: api,
                     [`${pkg}.resource`]: cdn,
                 });
@@ -43,38 +44,36 @@
                 setupEnv(e.projectName, e.source, e.apiHost);
             }
         }
-        Magix.attach(
-            window,
-            'mxservicerror',
-            (
-                e: Event & {
-                    errorCode: string;
-                }
-            ) => {
-                if (e.errorCode == 'LOGINOUT') {
-                    const loc = Magix.Router.parse();
-                    if (loc.hash.path != '/login/index') {
-                        location.href =
-                            'index.html?mxredirectUrl=' +
-                            encodeURIComponent(location.href) +
-                            '#!/login/index';
-                    }
-                }
-            }
-        );
-        Magix.applyStyle('as@:./magix5-scaffold/gallery/mx-style/group.less');
-        Magix.applyStyle(
-            'as@:./magix5-scaffold/gallery/mx-style/normalize.less'
-        );
-        Magix.applyStyle('as@:./magix5-scaffold/gallery/mx-style/icons.less');
-        Magix.applyStyle('as@:./magix5-scaffold/gallery/mx-style/dialog.less');
+        // Magix.attach(
+        //     window,
+        //     'mxservicerror',
+        //     (
+        //         e: Event & {
+        //             errorCode: string;
+        //         }
+        //     ) => {
+        //         if (e.errorCode == 'LOGINOUT') {
+        //             const loc = Magix.Router.parse();
+        //             if (loc.hash.path != '/login/index') {
+        //                 location.href =
+        //                     'index.html?mxredirectUrl=' +
+        //                     encodeURIComponent(location.href) +
+        //                     '#!/login/index';
+        //             }
+        //         }
+        //     }
+        // );
+        applyStyle('global@:./magix5-scaffold/gallery/mx-style/var.less');
+        applyStyle('global@:./magix5-scaffold/gallery/mx-style/normalize.less');
+        applyStyle('global@:./magix5-scaffold/gallery/mx-style/icon.less');
+        //applyStyle('global@:./magix5-scaffold/gallery/mx-style/dialog.less');
         // Magix.applyStyle('@global.style')
 
         // medusa：国际版配置
         //      组件里面会优先读取magix.config配置的语言环境
         //      如果需要国际化，则在此处理好配置即可
         //      如不需要国际化，则固定传入zh-cn即可
-        Magix.config({
+        config({
             medusa: 'zh-cn',
             projectName,
             [`${projectName}.resource`]: src,
@@ -113,7 +112,7 @@
         //     return user.userId
         //   }
         // })
-        let loadCrossPrepare = (module) => {
+        let loadCrossPrepare = (module, params) => {
             let index = module.indexOf('/');
             let pkg = index > -1 ? module.substring(0, index) : module;
             if (!loadCrossPrepare[pkg]) {
@@ -123,7 +122,7 @@
                             if (P.__esModule) {
                                 P = P.default;
                             }
-                            P().then(resolve, reject);
+                            P(params).then(resolve, reject);
                         } catch (error) {
                             reject(error);
                         }
@@ -133,7 +132,7 @@
             return loadCrossPrepare[pkg];
         };
         let defaultView = projectName + '/views/default';
-        Magix.boot({
+        boot({
             defaultPath: '/home',
             defaultView,
             projectName,
@@ -143,10 +142,10 @@
                 '/examples': defaultView,
             },
             rootId: 'app',
-            async require(modules) {
+            async require(modules, params) {
                 let promises = [];
                 for (let m of modules) {
-                    promises.push(loadCrossPrepare(m));
+                    promises.push(loadCrossPrepare(m, params));
                 }
                 await Promise.all(promises);
             },
