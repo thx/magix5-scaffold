@@ -1,3 +1,4 @@
+/*md5:f16cc9bac18432b5d635e7280ef16516*/
 export default {
     ctor() {
         this.on('dompatch', () => {

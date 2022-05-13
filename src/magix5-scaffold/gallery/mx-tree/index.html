@@ -1,0 +1,27 @@
+<!--md5:f365346437ffcfd6f90cb78aa56682c2-->
+{{if search}}
+<mx-input class="mb10" 
+    style="width: {{=width}};"
+    *placeholder="搜索" 
+    *type="search"
+    *value="{{=keyword}}"
+    mx-change="@:{search}()"
+    data-spm-click="{{=spm}}?{{=spm}}search" />
+{{/if}}
+
+<div style="{{if height}} height: {{=height}}px; overflow-y: auto; {{/if}}">
+    <mx-tree.branch  class="{{if hasLine}} line {{/if}}" 
+        *type="{{=type}}"
+        *unchecked-state="{{=uncheckedState}}"
+        *checked-state="{{=checkedState}}"
+        *indeterminate-state="{{=indeterminateState}}"
+        *radio-all="{{=radioAll}}"
+        *radio-selected="{{=radioSelected}}"
+        *text-key="{{=textKey}}"
+        *value-key="{{=valueKey}}"
+        *need-expand="{{#needExpand}}"
+        *close-map="{{#closeMap}}"
+        *highlight-map="{{#highlightMap}}"
+        *data="{{#info}}"
+        mx-change="@:{change}()" />
+</div>

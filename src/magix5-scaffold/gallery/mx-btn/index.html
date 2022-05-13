@@ -1,0 +1,42 @@
+<!--md5:5d18af1f4f18dadc1a119771da81af9a-->
+{{if (linkHref && !disabled && !loading)}}
+    <a href="{{=linkHref}}" target="{{=linkTarget}}" rel="noopener noreferrer"
+        style="{{=styles}}; width: {{=(width ? (width + 'px') : '100%')}};"
+        class="{{if type}} btn--{{=type}} {{/if}} {{if small}} btn--small {{/if}}">
+        <span class="text {{if loading}} text-hide {{/if}}" mx-html="{{=content}}"></span>
+    </a>
+{{else}}
+    <button type="button" 
+        style="width: {{=(width ? (width + 'px') : '100%')}}; {{=styles}}"
+        class="{{if type}} btn--{{=type}} {{/if}} {{if small}} btn--small {{/if}}"
+        disabled="{{=(disabled || loading)}}?"
+        data-animation="btn" mx5-animation="{{=animing}}?expand"
+        mx-click="@:{anim}()">
+        <span class="text {{if loading}} text-hide {{/if}}" mx-html="{{=content}}"></span>
+    </button>
+    {{if loading}}
+    <mx-loading class="load {{if small}} load-small {{/if}}"
+        *height="100%"
+        *color-bg="{{=((type == 'primary') ? 'rgba(222,225,232,.2)' : '#DEE1E8')}}"
+        *color-gradient="{{=((type == 'primary') ? '#ffffff' : 'var(--mx5-color-brand)')}}" 
+        *color="{{=((type == 'primary') ? '#ffffff' : 'var(--mx5-color-brand)')}}"
+        mx-click="@:{stop.propagation}()" />
+    {{/if}}
+{{/if}}
+{{if tagContent}}
+<span class="btn-tag mx5-tag {{if (disabled || loading)}} mx5-tag-disabled {{/if}}" 
+    style="{{if tagColor}} background-color: {{=tagColor}}; border: 1px solid {{=tagColor}};{{/if}}" 
+    mx-click="@:{stop.propagation}()" >
+    <span class="mx5-tag-name" mx-html="{{=tagContent}}"></span>
+</span>
+{{/if}}
+{{if (disabled || loading)}}
+<span class="disabled-mask"></span>
+{{/if}}
+{{if (disabled && disabledTip)}}
+<mx-popover class="pop-mask" 
+    *width="{{=disabledWidth}}" 
+    *placement="{{=disabledPlacement}}" 
+    *content="{{=disabledTip}}"
+    mx-click="@:{stop.propagation}()" ></mx-popover>
+{{/if}}

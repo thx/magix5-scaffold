@@ -1,0 +1,61 @@
+/*md5:b5486f1da2a48f5da654bc211d940ff7*/
+[mx5-view*="mx-loading/index"] {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+.wrapper {
+    display: table-cell;
+    height: 200px;
+    vertical-align: middle;
+    line-height: 0;
+}
+
+@keyframes mx5-loading-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    animation: mx5-loading-rotate 1s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes mx5-loading-dashpath {
+    0% {
+        stroke-dasharray: 0, 150;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dasharray: 30, 150;
+        stroke-dashoffset: -100px;
+    }
+}
+
+.path {
+    animation: mx5-loading-dashpath 1s ease-in-out infinite;
+    stroke-dasharray: 10, 150;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+}
+
+.text {
+    max-width: 80%;
+    margin: auto;
+    line-height: 22px;
+}
+
+.m-img {
+    width: 48px;
+    height: 48px;
+}

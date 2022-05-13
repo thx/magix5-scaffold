@@ -1,5 +1,6 @@
-import Magix from 'magix5';
-let { has, mark, toMap, applyStyle, task, isObject, isArray } = Magix;
+/*md5:9177f76a20f6258546e464a212f4ea1a*/
+import Magix5 from 'magix5';
+let { has, mark, toMap, applyStyle, task, isObject, isArray } = Magix5;
 applyStyle('@:./sync.less');
 let emptyObject = {};
 let errorSelector = '@:./sync.less:error-input';
@@ -145,10 +146,12 @@ export default {
     isValid() {
         debugger;
     },
-    '$[mx5-ctrl]<change,input,focusout>'(e: Magix5.MagixMixedEvent) {
+    '$[mx5-ctrl]<change,focusout>'(e: Magix5.MagixMixedEvent) {
         let { eventTarget, type } = e;
         let ownerId = eventTarget.getAttribute('mx5-host');
-        if (ownerId != this.id || e['@:{halt}']) return;
+        if (ownerId != this.id || e['@:{halt}']) {
+            return;
+        };
         e['@:{halt}'] = 1;
         let ctrls = eventTarget.getAttribute('mx5-ctrl');
 
@@ -254,6 +257,7 @@ export default {
             } else if ('value' in targetAsSelect) {
                 value = targetAsInput.value;
             }
+
             //处理多绑定时，值从event对象上读取
             if (has(e, a)) {
                 value = e[a];

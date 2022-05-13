@@ -1,0 +1,127 @@
+/*md5:30cc86c9753a91ac07a32d560c203d7b*/
+/* 默认值映射到magix3的变量配置 */
+:root {
+    /* 通用，字体相关参数，输入或下拉框高度  */
+    --mx5-line-height: var(--line-height, 1.5);
+    --mx5-font-color: var(--font-color, #333);
+    --mx5-font-size: var(--font-size, 12px);
+    --mx5-font-family: var(--font-family, Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif);
+    --mx5-font-number: var(--font-number, Tahoma);
+    --mx5-input-height: var(--input-height, 32px);
+    --mx5-input-small-height: var(--input-small-height, 26px);
+
+    /* 品牌色，gradient渐变预留 */
+    --mx5-color-brand: var(--color-brand, #385ACC);
+    --mx5-color-brand-gradient: var(--app-brand-gradient, var(--mx5-color-brand));
+    --mx5-color-brand-hover: var(--color-brand-hover, #2e4aa7);
+    --mx5-color-brand-vs: var(--color-brand-vs, #f7664d);
+    --mx5-color-brand-light: var(--color-brand-light, #d7def6);
+    --mx5-color-brand-opacity: var(--color-brand-opacity, #eff2fb);
+    --mx5-color-brand-text: var(--color-brand-text, #ffffff);
+    --mx5-color-brand-text-hover: var(--color-brand-text-hover, #ffffff);
+
+    /* 边框 */
+    --mx5-border-color: var(--color-border, #e6e6e6);
+    --mx5-border-radius: var(--border-radius, 4px);
+
+    /* 背景色 */
+    --mx5-bg-color: var(--color-bg, #f5f5f5);
+    --mx5-bg-color-hover: var(--color-bg-hover, var(--mx5-color-brand-opacity));
+    --mx5-bg-color-grey: var(--app-bg, #e8ebf2);
+    --mx5-bg-color-black: var(--app-nav-bg, #303a58);
+
+    /* 提示颜色 */
+    --mx5-color-error: var(--color-red, #d52112);
+    --mx5-color-pass: var(--color-green, #30ab66);
+    --mx5-color-warn: var(--color-warn, #ffb400);
+    --mx5-color-highlight: var(--color-blue, var(--mx5-color-brand));
+
+    /* trigger边框，背景色 */
+    --mx5-trigger-v-gap: 8px;
+    --mx5-trigger-h-gap: 8px;
+    --mx5-trigger-border-color: var(--border-highlight, #9095A1);
+    --mx5-trigger-border-color-hover: var(--border-highlight-hover, var(--mx5-color-brand));
+    --mx5-trigger-bg-color: var(--bg-highlight, #fff);
+    --mx5-trigger-bg-color-hover: var(--bg-highlight-hover, #fff);
+    --mx5-trigger-icon-color: #ccc;
+    --mx5-trigger-icon-color-hover: #666;
+    --mx5-trigger-max-height: 320px;
+    --mx5-trigger-min-width: var(--btn-min-width, 64px);
+    --mx5-trigger-small-min-width: 48px;
+    --mx5-trigger-item-gap: 2px;
+
+    /* 动画 */
+    --mx5-animation-duration: var(--duration, 0.2s);
+
+    /* trigger扩散动画相关参数 */
+    --mx5-animation-expand-color: var(--mx5-color-brand);
+    --mx5-animation-expand-timer: 300ms;
+    --mx5-animation-expand-ease: ease-out;
+
+    /* 按钮 */
+    --mx5-btn-font-size: var(--btn-font-size, var(--mx5-font-color));
+    --mx5-btn-border-radius: var(--btn-border-radius, var(--mx5-border-radius));
+    --mx5-btn-brand: var(--btn-brand, var(--mx5-color-brand));
+    --mx5-btn-brand-hover: var(--btn-brand-hover, var(--mx5-color-brand-hover));
+    --mx5-btn-brand-text: var(--btn-brand-text, var(--mx5-color-brand-text));
+    --mx5-btn-brand-text-hover: var(--btn-brand-text-hover, var(--mx5-color-brand-text-hover));
+    --mx5-btn-text: var(--btn-text, #333);
+    --mx5-btn-text-hover: var(--btn-text-hover, #333);
+    --mx5-btn-border: var(--btn-border, var(--mx5-color-brand));
+    --mx5-btn-border-hover: var(--btn-border-hover, var(--mx5-color-brand));
+    --mx5-btn-bg: var(--btn-bg, var(--mx5-color-brand-opacity));
+    --mx5-btn-bg-hover: var(--btn-bg-hover, var(--mx5-color-brand-light));
+    --mx5-btn-h-gap: var(--btn-h-gap, 8px);
+
+    /* 表格参数 */
+    --mx5-table-ceil-h-gap: var(--mx-table-ceil-h-gap, 12px);
+    --mx5-table-ceil-v-gap: var(--mx-table-ceil-v-gap, 12px);
+    --mx5-table-head-height: var(--mx-table-head-height, 60px);
+    --mx5-table-head-font-color: var(--mx-table-head-font-color, #999);
+    --mx5-table-head-bg-color: var(--mx5-bg-color, #f5f5f5);
+
+    /* 阴影 */
+    --mx5-shadow-border-color: var(--mx-comp-shadow-box-border, #f5f5f6);
+    --mx5-shadow: var(--mx-comp-shadow-card, 0 1px 1px 0 rgba(0, 0, 0, 0.08));
+    --mx5-shadow-hover: var(--mx-comp-shadow-card-hover, 0 4px 6px 0 rgba(0, 0, 0, 0.08));
+
+    /* layout */
+    --mx5-layout-title-v-gap: var(--mx-grid-title-v-gap, 8px);
+    --mx5-layout-title-h-gap: var(--mx-grid-title-h-gap, 24px);
+    --mx5-layout-title-font-size: var(--mx-grid-title-font-size, 16px);
+    --mx5-layout-title-font-weight: var(--mx-grid-title-font-weight, normal);
+    --mx5-layout-title-border-color: var(--mx-grid-title-color-border, var(--mx5-border-color));
+    --mx5-layout-title-link-font-size: var(--mx-grid-title-link-font-size, 12px);
+    --mx5-layout-title-link-color: var(--mx-grid-title-link-color, var(--mx5-color-brand));
+    --mx5-layout-title-link-color-hover: var(--mx-grid-title-link-color-hover, var(--mx5-color-brand-hover));
+    --mx5-layout-body-v-gap: var(--mx-grid-body-v-gap, 16px);
+    --mx5-layout-body-h-gap: var(--mx-grid-body-h-gap, 24px);
+
+    /* popover */
+    --mx5-popover-v-gap: 8px;
+    --mx5-popover-h-gap: 8px;
+
+    /* checkbox radio参数 */
+    --mx5-checkbox-color: var(--mx-checkbox-color, #9095A1);
+    --mx5-checkbox-size: var(--mx-checkbox-size, 14px);
+    --mx5-checkbox-border-radius: var(--mx-checkbox-border-radius, 2px);
+    --mx5-checkbox-h-gap: 4px;
+
+    /* 打标 */
+    --mx5-tag-mode: var(--mx-tag-mode, solid);
+    --mx5-tag-height: var(--mx-tag-height, 16px);
+    --mx5-tag-border-radius: var(--mx-tag-border-radius, 8px);
+    --mx5-tag-font-scale: var(--mx-tag-font-scale, 0.84);
+    --mx5-tag-h-gap: var(--mx-tag-h-gap, 4px);
+    --mx5-tag-font-weight: var(--mx-tag-font-weight, solid);
+
+    /* 翻页器 */
+    --mx5-pager-mode: var(--mx-pagination-mode, square);
+    --mx5-pager-font-color: var(--mx-pagination-font-color, #666);
+    --mx5-pager-font-color-hover: var(--mx-pagination-font-color-hover, #333);
+    --mx5-pager-bg-color: var(--mx-pagination-font-color-bg, #eee);
+    --mx5-pager-circle-gap: 8px;
+    
+    /* 树形结构 */
+    --mx5-tree-item-height: 20px;
+}

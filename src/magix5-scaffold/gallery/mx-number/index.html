@@ -1,0 +1,24 @@
+<!--md5:8c389a9af1fd1fb1ee60e2b47d570965-->
+{{if animation}}
+<div class="mx5-clearfix" style="height: {{=animationInfo.lineHeight}}px; font-size: {{=animationInfo.fontSize}}px; line-height: {{=animationInfo.lineHeight}}px; color: {{=animationInfo.color}}; overflow: hidden;">
+    {{each animationInfo.arr as item index}}
+    <div class="numbers" data-index="{{=index}}"
+        style="{{if (item.isNumber && rendered)}} 
+        {{if animing}} transition: all {{=animationInfo.duration}}ms ease-out {{=item.numberDelay}}ms;  {{/if}}
+        transform: translate(0, -{{=(item.num * 5 + animBase)}}%); 
+    {{/if}}">
+        {{if item.isNumber}}
+            {{for(let i=0;i<=1;i++)}}
+                {{for(let j=0;j<=9;j++)}}
+                <div>{{=j}}</div>
+                {{/for}}
+            {{/for}}
+        {{else}}
+        <div>{{=item.num}}</div>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>
+{{else}}
+    {{=num}}
+{{/if}}

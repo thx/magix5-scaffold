@@ -2,8 +2,8 @@
 version:5.1.0 Licensed MIT
 author:kooboy_li@163.com
 loader:umd
-enables:mxevent,richVframe,xml,async,service,wait,lang,router,routerHash,routerTip,richView,recast,require,xview,taskComplete,taskIdle,spreadMxViewParams,removeStyle,taskCancel,eventVframe,richVframeInvokeCancel,waitSelector,remold,rewrite,rebuild,load,state,batchDOMEvent,richVframeDescendants,preloadViews,esmoduleCheck,checkReset,innerView,base
-optionals:catchHTMLError,routerState,routerTipLockUrl,routerForceState,customTags,checkAttr,webc,lockSubWhenBusy
+enables:mxevent,richVframe,xml,async,service,wait,lang,router,routerHash,routerTip,richView,recast,require,xview,taskComplete,taskIdle,spreadMxViewParams,removeStyle,taskCancel,eventVframe,richVframeInvokeCancel,waitSelector,remold,rewrite,rebuild,load,state,batchDOMEvent,richVframeDescendants,preloadViews,esmoduleCheck,checkReset,innerView
+optionals:base,catchHTMLError,routerState,routerTipLockUrl,routerForceState,customTags,checkAttr,webc,lockSubWhenBusy
 */
 //magix-composer#snippet;
 //magix-composer#exclude = loader;
@@ -3381,42 +3381,6 @@ define('magix5', () => {
         Assign(NService, Service_Manager);
         return Extend(NService, Service);
     };
-    function Base() { }
-    Assign(Base[Prototype], MxEvent);
-    Base.extend = function extend(props, statics) {
-        let me = this;
-        let ctor = props && props.ctor;
-        function X(...a) {
-            let t = this;
-            me.apply(t, a);
-            if (ctor)
-                ctor.apply(t, a);
-        }
-        X.extend = extend;
-        Assign(X, statics);
-        return Extend(X, me, props);
-    };
-    /**
-     * 组件基类
-     * @name Base
-     * @constructor
-     * @borrows Event.fire as #fire
-     * @borrows Event.on as #on
-     * @borrows Event.off as #off
-     * @beta
-     * @module base
-     * @example
-     * let T = Magix.Base.extend({
-     *     hi:function(){
-     *         this.fire('hi');
-     *     }
-     * });
-     * let t = new T();
-     * t.onhi=function(e){
-     *     console.log(e);
-     * };
-     * t.hi();
-     */
     let Magix_Booted = 0;
     let TaskCompleteCheck = (schedule, callback) => {
         let taskCount = 0, taskCheck = (...args) => {
@@ -3523,8 +3487,8 @@ define('magix5', () => {
         Service,
         Event: MxEvent,
         Router,
-        Base,
         mark: Mark,
+        keys: Keys,
         unmark: Unmark,
         node: GetById,
         task: CallFunction,
